@@ -7,7 +7,7 @@ let deps: [Package.Dependency] = [
 
 let targets: [Target] = [
     .target(
-        name: "SQLite",
+        name: "SQLiteSwift",
         dependencies: [
             .product(name: "SwiftToolchainCSQLite", package: "swift-toolchain-sqlite", condition: .when(platforms: [.linux, .windows, .android]))
         ],
@@ -21,7 +21,7 @@ let testTargets: [Target] = [
     .testTarget(
         name: "SQLiteTests",
         dependencies: [
-            "SQLite"
+            "SQLiteSwift"
         ],
         path: "Tests/SQLiteTests",
         exclude: [
@@ -34,7 +34,7 @@ let testTargets: [Target] = [
 ]
 
 let package = Package(
-    name: "SQLite.swift",
+    name: "SQLiteSwift.swift",
     platforms: [
         .iOS(.v12),
         .macOS(.v10_13),
@@ -44,8 +44,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SQLite",
-            targets: ["SQLite"]
+            name: "SQLiteSwift",
+            targets: ["SQLiteSwift"]
         )
     ],
     dependencies: deps,
